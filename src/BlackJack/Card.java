@@ -10,17 +10,38 @@ package BlackJack;
  * enough to be instantiated for any Card game. Students wishing to add to the code 
  * should remember to add themselves as a modifier.
  * @author megha, 2020
+ * @author Calvin V
  */
 public abstract class Card 
 {
-    //default modifier for child classes
+    private Suit suit;
+    private Value value;
+    
     
     /**
-     * Students should implement this method for their specific children classes 
-     * @return a String representation of a card. Could be an UNO card, a regular playing card etc.
+     * This is the Card class' main constructor.
+     * @param suit Card's suit
+     * @param value Card's value
      */
+    public Card(Suit suit, Value value){
+        this.suit = suit;
+        this.value = value;
+        
+    }
     
-    @Override
-    public abstract String toString();
+    /**
+     * Returns the value of the card.
+     * @return The card's value. Ace = 1/11, Face cards = 10
+     */
+    public Value getValue(){
+        return this.value;
+    }
     
+    /**
+     * Outputs the full name of the card.
+     * @return The card's suit, followed by its value.
+     */
+    public String toString(){
+        return this.suit.toString() + " " + this.value.toString();
+    }
 }
